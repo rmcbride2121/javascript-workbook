@@ -31,18 +31,6 @@ function pigLatin(word) {
     // Compose final string
     return word.slice(vowelIndex) + word.slice(0, vowelIndex) + "ay";
   }
-  
-  
-  
-  
-  // const vowels = ['a','e','i','o','u'];
-  // let result = word.substr(1).trim().toLowerCase();
-  
-  // if (word.startsWith(vowels)){
-  //   return result + word.charAt(0) + 'yay';
-  // } else {
-  //   return result + word.charAt(0) + 'ay';
-  // }
 }
 
 
