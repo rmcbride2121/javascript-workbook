@@ -12,20 +12,26 @@ function rockPaperScissors(cleanHand1, cleanHand2){
   let hand1 = cleanHand1.trim().toLowerCase();
   let hand2 = cleanHand2.trim().toLowerCase();
 
-  if (hand1 == 'rock' && hand2 == 'scissors'){
-    return "Hand one wins!";
+  if (hand1 == 'rock' && hand2 =='scissors'){
+    return 'hand1 wins!';
   } else if (hand1 == 'rock' && hand2 == 'paper'){
-    return "Hand two wins!";
-  } else if (hand1 == 'paper' && hand2 == 'rock'){
-    return "Hand one wins!";
-  } else if (hand1 == 'paper' && hand2 == 'scissors'){
-    return "Hand two wins!";
-  } else if (hand1 == 'scissors' && hand2 == 'paper'){
-    return "Hand one wins!";
-  } else if (hand1 == 'scissors' && hand2 == 'rock'){
-    return "Hand two wins!";
-  } else if (hand1 == hand2){
+    return 'hand2 wins!';
+  } else if (hand1 == 'rock' && hand2 == 'rock'){
     return "It's a tie!";
+  } else if (hand1 == 'paper' && hand2 == 'scissors'){
+    return 'hand2 wins!';
+  } else if (hand1 == 'paper' && hand2 == 'rock'){
+    return 'hand1 wins!' ;
+  } else if (hand1 == 'paper' && hand2 == 'paper'){
+    return "It's a tie!";
+  } else if (hand1 == 'scissors' && hand2 == 'scissors'){
+    return "It's a tie!";
+  } else if (hand1 == 'scissors' && hand2 == 'rock'){
+    return 'hand2 wins!';
+  } else if (hand1 =='scissors' && hand2 == 'paper'){
+    return 'hand1 wins!';
+  } else { 
+      return 'Please enter rock, paper, or scissors'
   }
 }
 
@@ -49,14 +55,27 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
     });
     it('should detect which hand won', () => {
-      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
-      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock', 'paper'), "hand2 wins!");
+      assert.equal(rockPaperScissors('paper', 'scissors'), "hand2 wins!");
+      assert.equal(rockPaperScissors('scissors', 'rock'), "hand2 wins!");
+    });
+    it('should detect which hand won', () => {
+      assert.equal(rockPaperScissors('paper', 'rock'), "hand1 wins!");
+      assert.equal(rockPaperScissors('scissors', 'paper', ), "hand1 wins!");
+      assert.equal(rockPaperScissors('rock', 'scissors'), "hand1 wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
-      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rOcK', ' paper '), "hand2 wins!");
+      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "hand2 wins!");
+      assert.equal(rockPaperScissors('sCiSsOrs ', ' rOck  '), "hand2 wins!");
+    });
+    it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
+        assert.equal(rockPaperScissors(' paper ', 'rOcK'), "hand1 wins!");
+        assert.equal(rockPaperScissors('SCISSORS', 'Paper'), "hand1 wins!");
+        assert.equal(rockPaperScissors(' rOck  ', 'sCiSsOrs '), "hand1 wins!");
+    });
+    it('Test to make sure user must input a valid entry (e.g. \'rock\', \'paper\', or \'scissors\')', () => {
+      assert.equal(rockPaperScissors(' BANANA', 'rappleOcK'), 'Please enter rock, paper, or scissors');
     });
   });
 } else {
