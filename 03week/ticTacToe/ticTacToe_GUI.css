@@ -1,0 +1,56 @@
+/* Base Styles */
+body {
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .page-container {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+  }
+
+  .button-container {
+      text-align: center;
+      margin-bottom: 15px;
+  }
+
+  .board {
+      border: 1px solid black;
+      height: fit-content;
+      width: fit-content;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .box {
+    border: 1px solid black;
+    color: black;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 180px;
+  }
+
+  button {
+    font-size: 50px;
+    border: 1px solid black;
+  }
+
+  .win-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+  }
+
+  #win-text {
+    color: black;
+    font-size: 30px;
+  }
+
