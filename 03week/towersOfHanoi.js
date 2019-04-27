@@ -21,7 +21,7 @@ console.log("c: " + stacks.c);
 
 function movePiece(startStack, endStack) {
 // Moves the pieces from one stack to another
-stacks[endStack].push(stacks[startStack].splice(-1,1));
+stacks[endStack].push(stacks[startStack].pop());
 }
 
 function isValid(startStack, endStack){
@@ -47,8 +47,10 @@ function isLegal(startStack, endStack) {
 
 function checkForWin() {
 // Checks for a win
-  if (stacks.b.length === 4 || stacks.c.length === 4) {
-    console.log("You win!");
+  if (stacks.b.length === 4) {
+    return true
+  } else {
+    return false
   }
 }
 
