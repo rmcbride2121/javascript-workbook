@@ -20,19 +20,32 @@ console.log("c: " + stacks.c);
 }
 
 function movePiece(startStack, endStack) {
-// Your code here
+// Moves the pieces from one stack to another
 stacks[endStack].push(stacks[startStack].splice(-1,1));
 
 }
 
 function isLegal() {
-// Your code here
-
+// Legal moves
+  for (let i = 0; stacks.length < i; i++){
+    
+  }
 }
 
 function checkForWin() {
-// Your code here
-
+// Checks for a win
+  if (stacks == {
+    a: [],
+    b: [4, 3, 2, 1],
+    c: []
+    } || stacks == {
+      a: [],
+      b: [],
+      c: [4, 3, 2, 1]
+      } ){
+        console.log("You win!");
+        return "You win!";
+      }
 }
 
 function towersOfHanoi(startStack, endStack) {
