@@ -22,35 +22,45 @@ console.log("c: " + stacks.c);
 function movePiece(startStack, endStack) {
 // Moves the pieces from one stack to another
 stacks[endStack].push(stacks[startStack].splice(-1,1));
-
 }
 
-function isLegal() {
+function isValid(startStack, endStack){
+  // removing spacing and capitol letters
+  if (startStack === "a" || startStack === "b" || startStack === "c" && endStack === "a" || endStack === "b" || endStack === "c") {
+    return true
+  } else {
+    return false
+  }
+}
+
+function isLegal(startStack, endStack) {
 // Legal moves
-  for (let i = 0; stacks.length < i; i++){
-    
+  if (stacks[startStack][stacks[startStack].length - 1] === undefined && stacks[startStack][stacks[endStack].length -1] === undefined) {
+    return false
+  } else if (stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length -1] || stacks[endStack][stacks[endStack].length -1] === undefined) {
+      return true
+  } else {
+    console.log('Invalid move. Start is larger than end stack.');
+    return false
   }
 }
 
 function checkForWin() {
 // Checks for a win
-  if (stacks == {
-    a: [],
-    b: [4, 3, 2, 1],
-    c: []
-    } || stacks == {
-      a: [],
-      b: [],
-      c: [4, 3, 2, 1]
-      } ){
-        console.log("You win!");
-        return "You win!";
-      }
+  if (stacks.b.length === 4 || stacks.c.length === 4) {
+    console.log("You win!");
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
-movePiece(startStack, endStack);
-
+  let newStart = startStack.toLowerCase().trim();
+  let newEnd = endStack.toLowerCase().trim();
+  if (isValid(newStart, newEnd)) {
+    if (isLegal(startStack, endStack)){
+      movePiece(newStart, newEnd);
+      checkForWin();
+    }
+  }
 }
 
 function getPrompt() {
