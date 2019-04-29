@@ -102,6 +102,10 @@ if (typeof describe === "function") {
       isValid("a", "c");
       isValid("b", "c");
     });
+    // New Test
+    it("should lowercase and trim word before translation", () => {
+      isValid(" A", " B");
+    });
   });
 
   // New Test
