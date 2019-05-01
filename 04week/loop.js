@@ -1,9 +1,13 @@
 let i = 0;
 
-do {
-  i = i + 1;
-  console.log(i);
-} while (i < 1000);
+function loops() {
+    do {
+    i = i + 1;
+    console.log(i);
+    } while (i < 1000);
+}
+
+loops();
 
 let person = {
     firstName: "Jane",
@@ -12,13 +16,15 @@ let person = {
     gender: "female"
 };
 
+let x;
+
 for (x in person) {
     if (person.birthDate === isOdd()) {
         console.log(person.birthDate);
     }
 }
 
-arrayOfPersons = [
+const arrayOfPersons = [
     {
         firstName: "Jane",
         lastName: "Doe",
